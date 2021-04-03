@@ -12,6 +12,7 @@ if(isset($_POST['btn-login'])){
   $designation1=$_POST['designation'];
   $name = mysqli_real_escape_string($con, $name);  
   $password = mysqli_real_escape_string($con, $password);
+  $password=md5($password) ;
   $designation1 = mysqli_real_escape_string($con, $designation1);
   if(empty($name) || empty($password) || empty($designation1))
   {
@@ -26,10 +27,10 @@ if(isset($_POST['btn-login'])){
     if($count==1)
     {
       if($designation1=='employee'){
-       echo "<script> window.location.assign('employee_page_index1.php'); </script>";
+       echo "<script> window.location.assign('employee_page_index.html'); </script>";
       }
       else if($designation1=='admin'){
-        echo "<script> window.location.assign('admin_page_index1.php'); </script>";
+        echo "<script> window.location.assign('admin_page_index.html'); </script>";
        }
     }
     else{      
@@ -43,12 +44,5 @@ if(isset($_POST['btn-login'])){
 
 
 ?>
-
-
-
-
-
-
-
 
 
